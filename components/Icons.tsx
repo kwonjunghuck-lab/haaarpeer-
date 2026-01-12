@@ -30,7 +30,10 @@ import {
   MousePointerClick,
   ArrowDown,
   PlayCircle,
-  Clapperboard
+  Clapperboard,
+  ShoppingBag,
+  FileSpreadsheet,
+  LayoutDashboard
 } from 'lucide-react';
 
 export { 
@@ -65,5 +68,8 @@ export {
   MousePointerClick,
   ArrowDown,
   PlayCircle,
-  Clapperboard
+  Clapperboard,
+  ShoppingBag,
+  FileSpreadsheet,
+  LayoutDashboard
 };

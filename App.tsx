@@ -41,7 +41,10 @@ import {
   MousePointerClick,
   ArrowDown,
   PlayCircle,
-  Clapperboard
+  Clapperboard,
+  ShoppingBag,
+  FileSpreadsheet,
+  LayoutDashboard
 } from './components/Icons';
 import { Logo } from './components/Logo';
 import { CelebProfile, MatchPoint, ContentIdea, StrategicPillar } from './types';
@@ -300,6 +303,28 @@ export default function Dashboard() {
     return `${today.getFullYear()}. ${(today.getMonth() + 1).toString().padStart(2, '0')}. ${today.getDate().toString().padStart(2, '0')}`;
   }, []);
 
+  // External Links Configuration
+  const externalLinks = [
+    {
+      label: "제품 스토어",
+      url: "https://smartstore.naver.com/regenpl",
+      icon: <ShoppingBag size={14} />,
+      color: "text-green-600 bg-green-50 border-green-200 hover:bg-green-100"
+    },
+    {
+      label: "캠페인 기획안",
+      url: "https://docs.google.com/spreadsheets/d/1HB0GQrPkpGmqttqDTUjtxZfDgt_gXVbIPL9aRWigfXE/edit?usp=sharing",
+      icon: <FileSpreadsheet size={14} />,
+      color: "text-emerald-600 bg-emerald-50 border-emerald-200 hover:bg-emerald-100"
+    },
+    {
+      label: "채널 분석 보고서",
+      url: "https://celebeautyhaarpeer.enn.kr/",
+      icon: <LayoutDashboard size={14} />,
+      color: "text-purple-600 bg-purple-50 border-purple-200 hover:bg-purple-100"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50/50 text-slate-900 pb-20 font-sans selection:bg-purple-200 selection:text-purple-900">
       
@@ -313,8 +338,26 @@ export default function Dashboard() {
                매칭 리포트 & 전략 대시보드
              </span>
           </div>
-          <div className="flex items-center gap-3">
-            <div className="text-right hidden sm:block">
+          <div className="flex items-center gap-2 md:gap-4">
+            
+            {/* Added: Navigation Links */}
+            <div className="flex items-center gap-2 mr-1">
+              {externalLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all shadow-sm ${link.color} group`}
+                  title={link.label}
+                >
+                  {link.icon}
+                  <span className="hidden sm:inline">{link.label}</span>
+                </a>
+              ))}
+            </div>
+
+            <div className="text-right hidden xl:block">
               <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">최종 업데이트</p>
               <p className="text-xs font-bold text-slate-700">{formattedDate}</p>
             </div>

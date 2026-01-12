@@ -23,7 +23,7 @@ import {
   Brain,
   Layers,
   Quote,
-  Sparkles,
+  Sparkles, 
   Link as LinkIcon,
   MessageCircle,
   Puzzle,
@@ -397,9 +397,9 @@ export default function Dashboard() {
             </div>
 
             {/* Right: Radar Chart */}
-            <div className="flex-1 h-56 lg:h-auto min-h-[200px]">
+            <div className="flex-1 h-56 lg:h-auto min-h-[200px] flex flex-col">
                <h3 className="text-[11px] font-extrabold text-slate-400 uppercase mb-3 tracking-widest text-center">커머스 DNA</h3>
-               <div className="h-full w-full">
+               <div className="flex-1 w-full min-h-0">
                  <DnaChart data={celebData.dna} />
                </div>
             </div>
